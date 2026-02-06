@@ -1,7 +1,7 @@
 model_list:
   - model_name: "*"  # 👈 This catches EVERY model name sent by Claude
     litellm_params:
-      model: gemini/gemini-2.0-flash-exp
+      model: gemini/gemini-2.0-flash
       api_key: "os.environ/GEMINI_API_KEY"
       # This specifically targets the reasoning_effort parameter
       additional_drop_params: ["reasoning_effort"]
