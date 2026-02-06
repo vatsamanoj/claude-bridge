@@ -1,14 +1,8 @@
 model_list:
-  # Add the new 4.5 model name here
-  - model_name: claude-sonnet-4-5-20250929
+  - model_name: "*"  # 👈 This catches EVERY model name sent by Claude
     litellm_params:
       model: gemini/gemini-2.0-flash-exp
       api_key: "os.environ/GEMINI_API_KEY"
-      drop_invalid_params: True
-
-  # Keep the old one just in case
-  - model_name: claude-3-5-sonnet-20241022
-    litellm_params:
-      model: gemini/gemini-2.0-flash-exp
-      api_key: "os.environ/GEMINI_API_KEY"
-      drop_invalid_params: True
+    # This prevents Gemini from crashing when Claude sends 4.5-specific flags
+    litellm_settings:
+      drop_params: true
