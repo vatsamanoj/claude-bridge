@@ -3,6 +3,8 @@ model_list:
     litellm_params:
       model: gemini/gemini-2.0-flash-exp
       api_key: "os.environ/GEMINI_API_KEY"
-    # This prevents Gemini from crashing when Claude sends 4.5-specific flags
+      # This specifically targets the reasoning_effort parameter
+      additional_drop_params: ["reasoning_effort"]
+      # This prevents Gemini from crashing when Claude sends 4.5-specific flags
     litellm_settings:
       drop_params: true
