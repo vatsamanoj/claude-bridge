@@ -1,0 +1,6 @@
+model_list:
+  - model_name: claude-3-5-sonnet-20241022  # What the Claude CLI expects
+    litellm_params:
+      model: gemini/gemini-2.0-flash-exp    # Your free Gemini key engine
+      api_key: "os.environ/GEMINI_API_KEY"
+      drop_invalid_params: True             # Cleans up Claude-specific flags
